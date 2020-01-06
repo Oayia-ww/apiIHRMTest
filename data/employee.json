@@ -1,0 +1,23 @@
+{
+  "add_emp": {
+    "username": "ssssssqqq",
+    "mobile": "18888899000",
+    "status_code": 200,
+    "success": true,
+    "code": 10000,
+    "message": "操作成功"
+  },
+  "query_del_emp": {
+    "status_code": 200,
+    "success": true,
+    "code": 10000,
+    "message": "操作成功"
+  },
+  "modify_emp": {
+    "departmentName": "软测",
+    "status_code": 200,
+    "success": true,
+    "code": 10000,
+    "message": "操作成功"
+  }
+}
