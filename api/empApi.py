@@ -42,3 +42,8 @@ class EmpApi:
         url = self.emp_url + '/' + app.EMP_ID
         print(url)
         return requests.delete(url, headers=self.headers)
+
+    def query_emp_list(self, page, size):
+        url = self.emp_url + '?page=' + str(page) + '&size=' + str(size)
+        print(url)
+        return requests.get(url, headers=self.headers)
