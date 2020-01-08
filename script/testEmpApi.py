@@ -56,8 +56,14 @@ class TestEmpApi(TestCase):
 
         assert_commen(self, resp, status_code, success, code, message)
 
+    def test3_emp_list(self):
+        """员工列表分页"""
+        resp = self.emp_api.query_emp_list(1, 10)
+        row_len = resp.json().get('data').get('rows').__len__()
+        self.assertEqual(10, row_len)
+
     @parameterized.expand(build_modify_emp_data)
-    def test3_update_emp_api(self, departmentName, status_code, success, code, message):
+    def test4_update_emp_api(self, departmentName, status_code, success, code, message):
         """更新员工"""
         resp = self.emp_api.update_emp({"departmentName": departmentName})
         jsonData = resp.json()
@@ -72,10 +78,13 @@ class TestEmpApi(TestCase):
         assert_commen(self, resp, status_code, success, code, message)
 
     @parameterized.expand(build_query_del_emp_data)
-    def test4_del_emp_api(self, status_code, success, code, message):
+    def test5_del_emp_api(self, status_code, success, code, message):
         """删除员工"""
         resp = self.emp_api.del_emp()
         jsonData = resp.json()
         logging.info('删除员工接口返回的数据为：{}'.format(jsonData))
 
         assert_commen(self, resp, status_code, success, code, message)
+
+
+
